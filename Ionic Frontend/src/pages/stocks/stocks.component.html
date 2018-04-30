@@ -2,6 +2,15 @@
 
 <app-toast [message]="toast.message"></app-toast>
 
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Stocks
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
 <div class="card mb-3" *ngIf="!isLoading">
 		<h4 class="card-header">Stocks</h4>
   <div class="card-body">
@@ -27,11 +36,11 @@
         <tr *ngFor="let stock of stocks">
           <td>{{stock.ticker}}</td>
           <td>{{stock.shares}}</td>
-          <td>{{stock.purchasePrice | currency}}</td>
-          <td>{{stock.purchaseTotal | currency}}</td>
-          <td>{{stock.latestPrice | currency}}</td>
-          <td>{{stock.latestTotal | currency}}</td>
-          <td>{{stock.gainloss | currency}}</td>
+          <td>{{stock.purchasePrice}}</td>
+          <td>{{stock.purchaseTotal}}</td>
+          <td>{{stock.latestPrice}}</td>
+          <td>{{stock.latestTotal}}</td>
+          <td>{{stock.gainloss}}</td>
           <td>
             <button class="btn btn-sm btn-primary" (click)="enableStockEditing(stock)"><i class="fa fa-pencil"></i> Edit</button> 
             <button class="btn btn-sm btn-danger" (click)="deleteStock(stock)"><i class="fa fa-trash"></i> Delete</button>
@@ -57,7 +66,7 @@
 
 <div class="card">
 	<h4 class="card-header">Gains and Losses</h4>
-    <svg width="1100" height="250"></svg>
+    <svg width="400" height="250"></svg>
 </div>
 
 
@@ -72,3 +81,4 @@
 		</form>
 	</div>
 </div>
+</ion-content>
